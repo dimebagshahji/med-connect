@@ -34,9 +34,9 @@ const BlobBackground = ({ theme = 'light' }: { theme?: 'light' | 'dark' }) => (
 
 // --- SLIDE 1: Title ---
 export const Slide1_Title: React.FC<{ isActive: boolean }> = ({ isActive }) => (
-  <SlideWrapper isActive={isActive} className="bg-primary relative overflow-hidden">
+  <SlideWrapper isActive={isActive} className="bg-primary relative">
     {/* Abstract Illustration Background */}
-    <div className="absolute inset-0 overflow-hidden">
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
       <div className="absolute top-[-20%] right-[-10%] w-[80vw] h-[80vw] rounded-full border-[1px] border-white/5 animate-spin-slow" style={{ animationDuration: '60s' }} />
       <div className="absolute top-[-15%] right-[-5%] w-[60vw] h-[60vw] rounded-full border-[1px] border-white/10" />
       <div className="absolute top-[20%] right-[10%] w-64 h-64 bg-secondary rounded-full blur-[100px] opacity-20 animate-pulse" />
@@ -45,7 +45,7 @@ export const Slide1_Title: React.FC<{ isActive: boolean }> = ({ isActive }) => (
       <Globe className="absolute top-1/2 right-[-10%] transform -translate-y-1/2 text-white/5 w-[800px] h-[800px]" strokeWidth={0.5} />
     </div>
     
-    <div className="relative z-10 w-full h-full flex flex-col justify-center px-12 md:px-24 max-w-7xl mx-auto">
+    <div className="relative z-10 w-full min-h-screen flex flex-col justify-center px-12 md:px-24 max-w-7xl mx-auto py-20">
       <div className="flex items-center gap-3 mb-8 text-secondary animate-fade-in-up">
           <Activity size={32} strokeWidth={1.5} />
           <span className="font-header font-semibold text-lg tracking-[0.2em]">MED CONNECT</span>
@@ -70,7 +70,7 @@ export const Slide1_Title: React.FC<{ isActive: boolean }> = ({ isActive }) => (
 
 // --- SLIDE 2: Problem ---
 export const Slide2_Problem: React.FC<{ isActive: boolean }> = ({ isActive }) => (
-  <SlideWrapper isActive={isActive} className="bg-white p-6 md:p-12 relative overflow-hidden flex items-center justify-center">
+  <SlideWrapper isActive={isActive} className="bg-white p-6 md:p-12 relative flex items-center">
     {/* Tech Background - Light Mode */}
     <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         {/* Light background */}
@@ -101,7 +101,7 @@ export const Slide2_Problem: React.FC<{ isActive: boolean }> = ({ isActive }) =>
         </svg>
     </div>
 
-    <div className="max-w-7xl w-full relative z-10 flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
+    <div className="max-w-7xl w-full relative z-10 flex flex-col lg:flex-row gap-16 lg:gap-24 items-center my-auto">
       
       {/* Left: Headline */}
       <div className="lg:w-5/12 text-left animate-fade-in-up">
@@ -117,7 +117,7 @@ export const Slide2_Problem: React.FC<{ isActive: boolean }> = ({ isActive }) =>
             </span>
          </h2>
          <p className="text-xl text-gray-500 font-light leading-relaxed mb-8 pl-1 border-l-2 border-red-500/50">
-            Patients are trapped in a system that is <strong className="text-gray-900 font-medium">expensive</strong>, <strong className="text-gray-900 font-medium">opaque</strong>, and <strong className="text-gray-900 font-medium">inaccessible</strong>.
+            Patients are trapped in a system that is <strong className="text-gray-900 font-medium">expensive</strong>, <strong className="text-gray-900 font-medium">opaque</strong>.
          </p>
       </div>
 
@@ -175,7 +175,7 @@ export const Slide2_Problem: React.FC<{ isActive: boolean }> = ({ isActive }) =>
 
 // --- SLIDE 3: Solution ---
 export const Slide3_Solution: React.FC<{ isActive: boolean }> = ({ isActive }) => (
-  <SlideWrapper isActive={isActive} className="bg-white relative overflow-hidden flex items-center justify-center p-8 md:p-0">
+  <SlideWrapper isActive={isActive} className="bg-white relative flex items-center justify-center p-8 md:p-0">
     {/* Subtle Background Elements */}
     <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-secondary/5 rounded-full blur-[120px] translate-x-1/2 -translate-y-1/2" />
     <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[100px] -translate-x-1/2 translate-y-1/2" />
@@ -183,10 +183,10 @@ export const Slide3_Solution: React.FC<{ isActive: boolean }> = ({ isActive }) =
     {/* Grid Pattern */}
     <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#006D77 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
 
-    <div className="max-w-7xl w-full h-full flex flex-col md:flex-row items-center relative z-10 px-8 md:px-12">
+    <div className="max-w-7xl w-full min-h-[500px] flex flex-col md:flex-row items-center relative z-10 px-8 md:px-12 my-auto">
       
       {/* Left: Content */}
-      <div className="md:w-1/2 flex flex-col justify-center h-full pr-0 md:pr-16 animate-fade-in-up">
+      <div className="md:w-1/2 flex flex-col justify-center h-full pr-0 md:pr-16 animate-fade-in-up mb-12 md:mb-0">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 text-secondary text-xs font-bold uppercase tracking-widest w-fit mb-6">
           <Star size={12} fill="currentColor" />
           The Solution
@@ -203,7 +203,7 @@ export const Slide3_Solution: React.FC<{ isActive: boolean }> = ({ isActive }) =
 
         <div className="space-y-6">
           {[
-             { title: "Curated Network", desc: "Top 1% JCI-accredited facilities only.", icon: Shield },
+             { title: "Curated Network", desc: "Top 1% facilities only.", icon: Shield },
              { title: "Transparent Pricing", desc: "Bundled quotes. No hidden fees.", icon: DollarSign },
              { title: "Concierge Logistics", desc: "Visa, flights & recovery handling.", icon: Briefcase }
           ].map((item, idx) => (
@@ -221,7 +221,7 @@ export const Slide3_Solution: React.FC<{ isActive: boolean }> = ({ isActive }) =
       </div>
 
       {/* Right: Modern Mobile App Mockup */}
-      <div className="md:w-1/2 h-full flex items-center justify-center relative animate-fade-in-up-delay-2 perspective-1000">
+      <div className="md:w-1/2 h-full flex items-center justify-center relative animate-fade-in-up-delay-2 perspective-1000 py-12 max-[480px]:hidden">
          {/* Background Decoration */}
          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <div className="w-[500px] h-[500px] border border-gray-100 rounded-full opacity-50 animate-pulse-slow"></div>
@@ -346,8 +346,8 @@ export const Slide4_Market: React.FC<{ isActive: boolean }> = ({ isActive }) => 
   };
 
   return (
-    <SlideWrapper isActive={isActive} className="bg-white p-6 md:p-12 relative overflow-hidden flex flex-col">
-      <div className="absolute inset-0 z-0 bg-offwhite/50"></div>
+    <SlideWrapper isActive={isActive} className="bg-white p-6 md:p-12 relative flex flex-col">
+      {/**<div className="absolute inset-0 z-0 bg-offwhite/50 pointer-events-none"></div>**/}
       
       {/* Header */}
       <div className="relative z-20 max-w-7xl mx-auto w-full mb-4">
@@ -355,7 +355,7 @@ export const Slide4_Market: React.FC<{ isActive: boolean }> = ({ isActive }) => 
          <p className="text-xl text-gray-500 font-light">Targeting high-volume corridors for maximum impact.</p>
       </div>
 
-      <div className="flex-1 relative z-10 w-full max-w-7xl mx-auto flex flex-col lg:flex-row gap-8">
+      <div className="flex-1 relative z-10 w-full max-w-7xl mx-auto flex flex-col lg:flex-row gap-8 min-h-[500px] my-auto">
         
         {/* Left: Stats Card (Floating) */}
         <div className="lg:absolute lg:top-8 lg:left-0 z-20 lg:w-72 animate-fade-in-up">
@@ -388,7 +388,7 @@ export const Slide4_Market: React.FC<{ isActive: boolean }> = ({ isActive }) => 
         {/* Center: Map Visualization */}
         <div className="w-full h-full min-h-[400px] relative rounded-3xl overflow-visible animate-fade-in">
            
-           <svg className="w-full h-full drop-shadow-2xl" viewBox="0 0 1000 500" preserveAspectRatio="xMidYMid meet">
+           <svg className="w-full drop-shadow-2xl" viewBox="0 0 1000 500" preserveAspectRatio="xMidYMid meet">
               <defs>
                  <linearGradient id="routeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                     <stop offset="0%" stopColor="#E29578" stopOpacity="0.2" />
@@ -496,12 +496,12 @@ export const Slide4_Market: React.FC<{ isActive: boolean }> = ({ isActive }) => 
 
 // --- SLIDE 5: Why Now (Redesigned) ---
 export const Slide5_WhyNow: React.FC<{ isActive: boolean }> = ({ isActive }) => (
-  <SlideWrapper isActive={isActive} className="bg-white flex flex-col relative overflow-hidden">
+  <SlideWrapper isActive={isActive} className="bg-white flex flex-col relative">
      {/* Background - Clean & Professional */}
-     <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-gray-50 via-white to-white z-0"></div>
-     <div className="absolute top-0 right-0 w-full h-full opacity-30" style={{ backgroundImage: 'radial-gradient(#CBD5E1 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
+     <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-gray-50 via-white to-white z-0 pointer-events-none"></div>
+     <div className="absolute top-0 right-0 w-full h-full opacity-30 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#CBD5E1 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
 
-     <div className="relative z-10 w-full h-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between p-6 md:p-12 gap-12">
+     <div className="relative z-10 w-full min-h-screen max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between p-6 md:p-12 gap-12 my-auto">
         
         {/* Left Column: Narrative */}
         <div className="lg:w-5/12 flex flex-col justify-center items-start text-left animate-fade-in-up">
@@ -526,7 +526,7 @@ export const Slide5_WhyNow: React.FC<{ isActive: boolean }> = ({ isActive }) => 
                  </div>
                  <div>
                     <div className="font-bold text-gray-900">Economic Pressure</div>
-                    <div className="text-sm text-gray-500">US costs at historic all-time highs.</div>
+                    <div className="text-sm text-gray-500">Costs in the US are at an all-time high.</div>
                  </div>
               </div>
 
@@ -553,7 +553,7 @@ export const Slide5_WhyNow: React.FC<{ isActive: boolean }> = ({ isActive }) => 
         </div>
 
         {/* Right Column: The Visual Core */}
-        <div className="lg:w-7/12 w-full h-[500px] relative flex items-center justify-center animate-fade-in delay-200">
+        <div className="max-[480px]:hidden lg:w-7/12 w-full h-[500px] relative flex items-center justify-center animate-fade-in delay-200">
             {/* Center Circle */}
             <div className="relative z-20 w-40 h-40 bg-white rounded-full shadow-[0_20px_50px_rgba(0,109,119,0.3)] flex flex-col items-center justify-center border-[6px] border-gray-50 animate-fade-in-up">
                <div className="absolute inset-0 rounded-full border border-primary/20 animate-ping opacity-20" style={{ animationDuration: '3s' }}></div>
@@ -615,17 +615,22 @@ export const Slide5_WhyNow: React.FC<{ isActive: boolean }> = ({ isActive }) => 
 // --- SLIDE 6: Product Overview ---
 export const Slide6_Product: React.FC<{ isActive: boolean }> = ({ isActive }) => (
   <SlideWrapper isActive={isActive} className="bg-offwhite p-12 md:p-16 flex flex-col">
-    <BlobBackground />
-    <div className="text-center mb-16 relative z-10 animate-fade-in-up">
+    {/**<BlobBackground />**/}
+    <div className="text-center mb-16 relative z-10 animate-fade-in-up mt-12 md:mt-0">
       <h2 className="font-header text-4xl font-bold text-primary mb-2">How It Works</h2>
       <p className="text-gray-500">From search to surgery in 3 simple steps</p>
     </div>
     
-    <div className="flex-1 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto w-full items-start relative z-10">
+    <div className="flex-1 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto w-full items-start relative z-10 my-auto pb-12 md:pb-0">
       
       {/* Step 1 */}
       <div className="flex flex-col gap-6 group animate-fade-in-up-delay-1">
-        <div className="bg-white rounded-[2.5rem] p-6 shadow-xl shadow-gray-200/50 border border-gray-100 aspect-[9/16] relative overflow-hidden group-hover:-translate-y-2 transition-transform duration-500">
+        <div className="text-center px-4">
+          <div className="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-lg mx-auto mb-4">1</div>
+          <h3 className="font-bold text-xl text-gray-900 mb-2">Search</h3>
+          <p className="text-sm text-gray-500 font-light">Filter by treatment, budget, or destination.</p>
+        </div>
+        <div className="bg-white rounded-[2.5rem] p-6 shadow-xl shadow-gray-200/50 h-[317px] border border-gray-100 relative overflow-hidden group-hover:-translate-y-2 transition-transform duration-500">
            {/* Minimal UI: Search */}
            <div className="w-full h-12 bg-gray-50 rounded-2xl mb-6 flex items-center px-4 border border-gray-100">
              <Search size={16} className="text-gray-400 mr-3" />
@@ -644,16 +649,17 @@ export const Slide6_Product: React.FC<{ isActive: boolean }> = ({ isActive }) =>
            </div>
            <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white via-white/80 to-transparent pointer-events-none"></div>
         </div>
-        <div className="text-center px-4">
-          <div className="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-lg mx-auto mb-4">1</div>
-          <h3 className="font-bold text-xl text-gray-900 mb-2">Search</h3>
-          <p className="text-sm text-gray-500 font-light">Filter by treatment, budget, or destination.</p>
-        </div>
+        
       </div>
 
       {/* Step 2 */}
       <div className="flex flex-col gap-6 group animate-fade-in-up-delay-2">
-        <div className="bg-white rounded-[2.5rem] p-6 shadow-xl shadow-gray-200/50 border border-gray-100 aspect-[9/16] relative overflow-hidden group-hover:-translate-y-2 transition-transform duration-500">
+        <div className="text-center px-4">
+          <div className="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-lg mx-auto mb-4">2</div>
+          <h3 className="font-bold text-xl text-gray-900 mb-2">Compare</h3>
+          <p className="text-sm text-gray-500 font-light">View credentials, accreditation, and total cost.</p>
+        </div>
+        <div className="bg-white rounded-[2.5rem] p-6 shadow-xl shadow-gray-200/50 h-[317px] border border-gray-100 relative overflow-hidden group-hover:-translate-y-2 transition-transform duration-500">
            {/* Minimal UI: Compare */}
            <div className="flex gap-2 mb-6">
               <div className="flex-1 bg-primary text-white rounded-2xl p-4 shadow-lg shadow-primary/20">
@@ -678,16 +684,17 @@ export const Slide6_Product: React.FC<{ isActive: boolean }> = ({ isActive }) =>
              </div>
            </div>
         </div>
-        <div className="text-center px-4">
-          <div className="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-lg mx-auto mb-4">2</div>
-          <h3 className="font-bold text-xl text-gray-900 mb-2">Compare</h3>
-          <p className="text-sm text-gray-500 font-light">View credentials, accreditation, and total cost.</p>
-        </div>
+        
       </div>
 
       {/* Step 3 */}
       <div className="flex flex-col gap-6 group animate-fade-in-up-delay-3">
-        <div className="bg-white rounded-[2.5rem] p-6 shadow-xl shadow-gray-200/50 border border-gray-100 aspect-[9/16] relative overflow-hidden group-hover:-translate-y-2 transition-transform duration-500">
+        <div className="text-center px-4">
+          <div className="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-lg mx-auto mb-4">3</div>
+          <h3 className="font-bold text-xl text-gray-900 mb-2">Book</h3>
+          <p className="text-sm text-gray-500 font-light">Secure appointment, flights, and hotel instantly.</p>
+        </div>
+        <div className="bg-white rounded-[2.5rem] p-6 shadow-xl shadow-gray-200/50 h-[317px] border border-gray-100 relative overflow-hidden group-hover:-translate-y-2 transition-transform duration-500">
            {/* Minimal UI: Book */}
            <div className="h-full flex flex-col items-center justify-center text-center">
              <div className="w-20 h-20 rounded-full bg-green-50 flex items-center justify-center mb-6 animate-bounce">
@@ -707,11 +714,7 @@ export const Slide6_Product: React.FC<{ isActive: boolean }> = ({ isActive }) =>
              </div>
            </div>
         </div>
-        <div className="text-center px-4">
-          <div className="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-lg mx-auto mb-4">3</div>
-          <h3 className="font-bold text-xl text-gray-900 mb-2">Book</h3>
-          <p className="text-sm text-gray-500 font-light">Secure appointment, flights, and hotel instantly.</p>
-        </div>
+        
       </div>
     </div>
   </SlideWrapper>
@@ -719,9 +722,9 @@ export const Slide6_Product: React.FC<{ isActive: boolean }> = ({ isActive }) =>
 
 // --- SLIDE 7: Competition ---
 export const Slide7_Competition: React.FC<{ isActive: boolean }> = ({ isActive }) => (
-  <SlideWrapper isActive={isActive} className="bg-white p-6 md:p-12 relative overflow-hidden flex flex-col items-center justify-center">
+  <SlideWrapper isActive={isActive} className="bg-white p-6 md:p-12 relative flex flex-col items-center justify-center">
     <BlobBackground />
-    <div className="max-w-7xl w-full relative z-10 animate-fade-in-up">
+    <div className="max-w-7xl w-full relative z-10 animate-fade-in-up my-auto">
       <div className="text-center mb-12">
         <div className="inline-block px-3 py-1 mb-4 rounded-full bg-gray-100 text-gray-600 text-xs font-bold tracking-widest uppercase">
           Competitive Landscape
@@ -754,7 +757,7 @@ export const Slide7_Competition: React.FC<{ isActive: boolean }> = ({ isActive }
               )}
             </div>
             <div className="col-span-1 flex justify-center text-gray-400 font-medium">
-               {row.agency === false ? <X size={20} /> : row.agency}
+               {row.agency === false ? <X size={20} /> :<p className="text-center" > {row.agency} </p>}
             </div>
             <div className="col-span-1 flex justify-center text-gray-400 font-medium">
                {row.direct === false ? <X size={20} /> : row.direct}
@@ -768,9 +771,9 @@ export const Slide7_Competition: React.FC<{ isActive: boolean }> = ({ isActive }
 
 // --- SLIDE 8: Business Model (Redesigned) ---
 export const Slide8_BusinessModel: React.FC<{ isActive: boolean }> = ({ isActive }) => (
-  <SlideWrapper isActive={isActive} className="bg-white p-6 md:p-12 flex flex-col items-center justify-center relative overflow-hidden">
+  <SlideWrapper isActive={isActive} className="bg-white p-6 md:p-12 flex flex-col items-center relative">
     {/* Dynamic Background */}
-    <div className="absolute inset-0 bg-offwhite">
+    <div className="absolute inset-0 bg-offwhite pointer-events-none">
       <div className="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-gray-50 to-transparent"></div>
       <div className="absolute bottom-0 right-0 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[100px] translate-x-1/2 translate-y-1/2"></div>
       <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-secondary/5 rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2"></div>
@@ -778,7 +781,7 @@ export const Slide8_BusinessModel: React.FC<{ isActive: boolean }> = ({ isActive
       <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#006D77 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
     </div>
 
-    <div className="max-w-7xl w-full relative z-10 animate-fade-in-up">
+    <div className="max-w-7xl w-full relative z-10 animate-fade-in-up my-auto">
       <div className="text-center mb-16">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-50 text-green-700 text-xs font-bold uppercase tracking-widest mb-4 border border-green-100">
            <DollarSign size={12} />
@@ -841,7 +844,7 @@ export const Slide8_BusinessModel: React.FC<{ isActive: boolean }> = ({ isActive
               </p>
               
               <div className="flex items-baseline gap-1">
-                 <span className="text-5xl font-bold text-white tracking-tight">$500</span>
+                 <span className="text-5xl font-bold text-white tracking-tight">$$</span>
                  <span className="text-lg text-gray-500 font-medium">+</span>
               </div>
               <div className="mt-2 text-sm text-gray-500 font-medium">Per Patient / Trip</div>
@@ -869,7 +872,7 @@ export const Slide8_BusinessModel: React.FC<{ isActive: boolean }> = ({ isActive
               </p>
               
               <div className="flex items-baseline gap-1">
-                 <span className="text-5xl font-bold text-gray-900 tracking-tight">$50k</span>
+                 <span className="text-5xl font-bold text-gray-900 tracking-tight">$$</span>
                  <span className="text-lg text-gray-400 font-medium">+</span>
               </div>
               <div className="mt-2 text-sm text-gray-400 font-medium">Annual Contract Value</div>
@@ -902,120 +905,120 @@ export const Slide8_BusinessModel: React.FC<{ isActive: boolean }> = ({ isActive
 );
 
 // --- SLIDE 9: Traction (Updated) ---
-export const Slide9_Traction: React.FC<{ isActive: boolean }> = ({ isActive }) => (
-  <SlideWrapper isActive={isActive} className="bg-primary text-white p-6 md:p-12 flex items-center justify-center overflow-hidden">
-    {/* Background Elements */}
-    <div className="absolute inset-0 opacity-10 pointer-events-none">
-       <div className="absolute -top-20 -right-20 w-[600px] h-[600px] bg-white rounded-full blur-[150px]"></div>
-       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-secondary rounded-full blur-[100px]"></div>
-    </div>
-    <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: 'radial-gradient(white 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+// export const Slide9_Traction: React.FC<{ isActive: boolean }> = ({ isActive }) => (
+//   <SlideWrapper isActive={isActive} className="bg-primary text-white p-6 md:p-12 flex items-center justify-center">
+//     {/* Background Elements */}
+//     <div className="absolute inset-0 opacity-10 pointer-events-none">
+//        <div className="absolute -top-20 -right-20 w-[600px] h-[600px] bg-white rounded-full blur-[150px]"></div>
+//        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-secondary rounded-full blur-[100px]"></div>
+//     </div>
+//     <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: 'radial-gradient(white 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
 
-    <div className="max-w-7xl w-full relative z-10 animate-fade-in-up">
-      {/* Header */}
-      <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white text-xs font-bold uppercase tracking-widest mb-6 backdrop-blur border border-white/20">
-             <Rocket size={12} />
-             Current Status
-          </div>
-          <h2 className="font-header text-5xl md:text-7xl font-bold mb-4 leading-tight">
-             Laying the <span className="text-secondary">Foundation.</span>
-          </h2>
-          <p className="text-xl text-white/80 font-light leading-relaxed max-w-2xl mx-auto">
-             Building a robust infrastructure across supply, demand, and technology.
-          </p>
-      </div>
+//     <div className="max-w-7xl w-full relative z-10 animate-fade-in-up my-auto">
+//       {/* Header */}
+//       <div className="text-center mb-16">
+//           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white text-xs font-bold uppercase tracking-widest mb-6 backdrop-blur border border-white/20">
+//              <Rocket size={12} />
+//              Current Status
+//           </div>
+//           <h2 className="font-header text-5xl md:text-7xl font-bold mb-4 leading-tight">
+//              Laying the <span className="text-secondary">Foundation.</span>
+//           </h2>
+//           <p className="text-xl text-white/80 font-light leading-relaxed max-w-2xl mx-auto">
+//              Building a robust infrastructure across supply, demand, and technology.
+//           </p>
+//       </div>
 
-      {/* 3 Columns */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+//       {/* 3 Columns */}
+//       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         
-        {/* Supply Side */}
-        <div className="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/10 hover:bg-white/15 transition-all duration-300 group">
-           <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-              <Globe size={28} className="text-secondary" />
-           </div>
-           <h3 className="text-xl font-bold text-white mb-6 border-b border-white/10 pb-4">Supply Side</h3>
+//         {/* Supply Side */}
+//         <div className="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/10 hover:bg-white/15 transition-all duration-300 group">
+//            <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+//               <Globe size={28} className="text-secondary" />
+//            </div>
+//            <h3 className="text-xl font-bold text-white mb-6 border-b border-white/10 pb-4">Supply Side</h3>
            
-           <div className="space-y-6">
-              <div>
-                 <div className="text-4xl font-bold text-white mb-1">500+</div>
-                 <div className="text-sm text-white/60 font-medium">Provider profiles researched</div>
-              </div>
-              <div className="flex items-start gap-3">
-                 <div className="w-5 h-5 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center shrink-0 mt-0.5">
-                    <Check size={12} strokeWidth={3} />
-                 </div>
-                 <div className="text-sm text-white/80">
-                    Active discussions with facilitators in <span className="text-white font-bold">India & Mexico</span>.
-                 </div>
-              </div>
-           </div>
-        </div>
+//            <div className="space-y-6">
+//               <div>
+//                  <div className="text-4xl font-bold text-white mb-1">500+</div>
+//                  <div className="text-sm text-white/60 font-medium">Provider profiles researched</div>
+//               </div>
+//               <div className="flex items-start gap-3">
+//                  <div className="w-5 h-5 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center shrink-0 mt-0.5">
+//                     <Check size={12} strokeWidth={3} />
+//                  </div>
+//                  <div className="text-sm text-white/80">
+//                     Active discussions with facilitators in <span className="text-white font-bold">India & Mexico</span>.
+//                  </div>
+//               </div>
+//            </div>
+//         </div>
 
-        {/* Demand Side */}
-        <div className="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/10 hover:bg-white/15 transition-all duration-300 group">
-           <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-              <Users size={28} className="text-accent" />
-           </div>
-           <h3 className="text-xl font-bold text-white mb-6 border-b border-white/10 pb-4">Demand Side</h3>
+//         {/* Demand Side */}
+//         <div className="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/10 hover:bg-white/15 transition-all duration-300 group">
+//            <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+//               <Users size={28} className="text-accent" />
+//            </div>
+//            <h3 className="text-xl font-bold text-white mb-6 border-b border-white/10 pb-4">Demand Side</h3>
            
-           <div className="space-y-6">
-              <div>
-                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-green-500/20 text-green-400 text-xs font-bold uppercase tracking-wider mb-2">
-                    <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
-                    Active
-                 </div>
-                 <div className="text-lg font-bold text-white">Patient Waitlist</div>
-              </div>
-              <div className="flex items-start gap-3">
-                 <div className="w-5 h-5 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center shrink-0 mt-0.5">
-                    <Check size={12} strokeWidth={3} />
-                 </div>
-                 <div className="text-sm text-white/80">
-                    Early interest confirmed from <span className="text-white font-bold">2 partner facilities</span>.
-                 </div>
-              </div>
-           </div>
-        </div>
+//            <div className="space-y-6">
+//               <div>
+//                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-green-500/20 text-green-400 text-xs font-bold uppercase tracking-wider mb-2">
+//                     <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
+//                     Active
+//                  </div>
+//                  <div className="text-lg font-bold text-white">Patient Waitlist</div>
+//               </div>
+//               <div className="flex items-start gap-3">
+//                  <div className="w-5 h-5 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center shrink-0 mt-0.5">
+//                     <Check size={12} strokeWidth={3} />
+//                  </div>
+//                  <div className="text-sm text-white/80">
+//                     Early interest confirmed from <span className="text-white font-bold">2 partner facilities</span>.
+//                  </div>
+//               </div>
+//            </div>
+//         </div>
 
-        {/* Tech */}
-        <div className="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/10 hover:bg-white/15 transition-all duration-300 group">
-           <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-              <Smartphone size={28} className="text-blue-400" />
-           </div>
-           <h3 className="text-xl font-bold text-white mb-6 border-b border-white/10 pb-4">Technology</h3>
+//         {/* Tech */}
+//         <div className="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/10 hover:bg-white/15 transition-all duration-300 group">
+//            <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+//               <Smartphone size={28} className="text-blue-400" />
+//            </div>
+//            <h3 className="text-xl font-bold text-white mb-6 border-b border-white/10 pb-4">Technology</h3>
            
-           <div className="space-y-6">
-               <div>
-                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-wider mb-2">
-                    <CheckCircle size={12} />
-                    Ready
-                 </div>
-                 <div className="text-lg font-bold text-white">High-Fidelity Prototype</div>
-              </div>
-              <div className="p-4 bg-white/5 rounded-xl border border-white/5">
-                 <div className="flex gap-2 mb-2">
-                    <div className="w-2 h-2 rounded-full bg-red-400"></div>
-                    <div className="w-2 h-2 rounded-full bg-yellow-400"></div>
-                    <div className="w-2 h-2 rounded-full bg-green-400"></div>
-                 </div>
-                 <div className="h-2 w-16 bg-white/20 rounded-full mb-2"></div>
-                 <div className="h-2 w-full bg-white/10 rounded-full mb-1"></div>
-                 <div className="h-2 w-2/3 bg-white/10 rounded-full"></div>
-              </div>
-           </div>
-        </div>
+//            <div className="space-y-6">
+//                <div>
+//                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-wider mb-2">
+//                     <CheckCircle size={12} />
+//                     Ready
+//                  </div>
+//                  <div className="text-lg font-bold text-white">High-Fidelity Prototype</div>
+//               </div>
+//               <div className="p-4 bg-white/5 rounded-xl border border-white/5">
+//                  <div className="flex gap-2 mb-2">
+//                     <div className="w-2 h-2 rounded-full bg-red-400"></div>
+//                     <div className="w-2 h-2 rounded-full bg-yellow-400"></div>
+//                     <div className="w-2 h-2 rounded-full bg-green-400"></div>
+//                  </div>
+//                  <div className="h-2 w-16 bg-white/20 rounded-full mb-2"></div>
+//                  <div className="h-2 w-full bg-white/10 rounded-full mb-1"></div>
+//                  <div className="h-2 w-2/3 bg-white/10 rounded-full"></div>
+//               </div>
+//            </div>
+//         </div>
 
-      </div>
-    </div>
-  </SlideWrapper>
-);
+//       </div>
+//     </div>
+//   </SlideWrapper>
+// );
 
 // --- SLIDE 10: Go-To-Market ---
 export const Slide10_GTM: React.FC<{ isActive: boolean }> = ({ isActive }) => (
-  <SlideWrapper isActive={isActive} className="bg-white p-6 md:p-12 relative overflow-hidden flex flex-col">
+  <SlideWrapper isActive={isActive} className="bg-white p-6 md:p-12 relative flex flex-col">
     <BlobBackground />
-    <div className="max-w-7xl w-full mx-auto relative z-10 flex flex-col h-full justify-center">
+    <div className="max-w-7xl w-full mx-auto relative z-10 flex flex-col justify-center my-auto">
       <div className="text-center mb-12 animate-fade-in-up">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 text-indigo-600 text-xs font-bold uppercase tracking-widest mb-4 border border-indigo-100">
            <Rocket size={12} />
@@ -1085,9 +1088,9 @@ export const Slide10_GTM: React.FC<{ isActive: boolean }> = ({ isActive }) => (
 
 // --- SLIDE 11: Team (Updated) ---
 export const Slide11_Team: React.FC<{ isActive: boolean }> = ({ isActive }) => (
-  <SlideWrapper isActive={isActive} className="bg-white p-6 md:p-12 relative overflow-hidden flex flex-col justify-center">
-    <BlobBackground />
-    <div className="max-w-7xl w-full mx-auto relative z-10 px-4">
+  <SlideWrapper isActive={isActive} className="bg-white p-6 md:p-12 relative flex flex-col">
+    {/**<BlobBackground />**/}
+    <div className="max-w-7xl w-full mx-auto relative z-10 px-4 my-auto">
       <div className="text-center mb-16 animate-fade-in-up">
         <h2 className="font-header text-4xl md:text-5xl font-bold text-gray-900 mb-4">Leadership Structure</h2>
         <p className="text-xl text-gray-500 font-light">Anchored by experience, scaling for the future.</p>
@@ -1188,9 +1191,9 @@ export const Slide12_Finance: React.FC<{ isActive: boolean }> = ({ isActive }) =
   ];
 
   return (
-    <SlideWrapper isActive={isActive} className="bg-white p-6 md:p-12 relative overflow-hidden flex flex-col justify-center">
-      <BlobBackground />
-      <div className="max-w-7xl w-full mx-auto relative z-10 flex flex-col h-full justify-center">
+    <SlideWrapper isActive={isActive} className="bg-white p-6 md:p-12 relative flex flex-col">
+      {/**<BlobBackground />**/}
+      <div className="max-w-7xl w-full mx-auto relative z-10 flex flex-col my-auto min-h-[500px]">
         
         {/* Header */}
         <div className="mb-12 animate-fade-in-up">
@@ -1272,7 +1275,7 @@ export const Slide12_Finance: React.FC<{ isActive: boolean }> = ({ isActive }) =
               </div>
 
               <div className="flex-1 w-full">
-                 <h3 className="text-lg font-bold text-gray-900 mb-6 border-b border-gray-100 pb-2">Capital Allocation</h3>
+                 <h3 className="text-lg font-bold text-gray-900 mb-6 border-b border-gray-100 pb-2">Use of Funds</h3>
                  <div className="space-y-4">
                     {allocationData.map((item, idx) => (
                        <div key={idx} className="flex items-center justify-between group">
@@ -1308,12 +1311,12 @@ export const Slide12_Finance: React.FC<{ isActive: boolean }> = ({ isActive }) =
 
 // --- SLIDE 13: Roadmap ---
 export const Slide13_Roadmap: React.FC<{ isActive: boolean }> = ({ isActive }) => (
-  <SlideWrapper isActive={isActive} className="bg-primary relative overflow-hidden flex flex-col justify-center">
-    <div className="absolute inset-0 overflow-hidden opacity-20">
+  <SlideWrapper isActive={isActive} className="bg-primary relative flex flex-col justify-center">
+    <div className="absolute inset-0 overflow-hidden opacity-20 pointer-events-none">
        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-secondary rounded-full blur-[150px] translate-x-1/2 -translate-y-1/2"></div>
     </div>
 
-    <div className="max-w-7xl w-full mx-auto relative z-10 px-12">
+    <div className="max-w-7xl w-full mx-auto relative z-10 px-12 my-auto">
       <div className="text-center mb-16 animate-fade-in-up">
          <h2 className="font-header text-5xl text-white font-bold mb-4">Path to Profitability.</h2>
          <p className="text-xl text-white/60 font-light">Strategic milestones from launch to sustainability.</p>
@@ -1356,12 +1359,12 @@ export const Slide13_Roadmap: React.FC<{ isActive: boolean }> = ({ isActive }) =
 
 // --- SLIDE 14: Closing ---
 export const Slide14_Closing: React.FC<{ isActive: boolean }> = ({ isActive }) => (
-  <SlideWrapper isActive={isActive} className="bg-white relative overflow-hidden flex flex-col items-center justify-center text-center">
-    <div className="absolute inset-0 bg-gradient-to-br from-white via-white to-gray-50"></div>
+  <SlideWrapper isActive={isActive} className="bg-white relative flex flex-col items-center justify-center text-center">
+    <div className="absolute inset-0 bg-gradient-to-br from-white via-white to-gray-50 pointer-events-none"></div>
     {/* Animated background elements */}
     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] animate-pulse-slow"></div>
 
-    <div className="relative z-10 max-w-4xl mx-auto px-6 animate-fade-in-up">
+    <div className="relative z-10 max-w-4xl mx-auto px-6 animate-fade-in-up my-auto">
        <div className="w-24 h-24 bg-primary text-white rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-2xl shadow-primary/30">
           <Activity size={48} />
        </div>
@@ -1371,9 +1374,9 @@ export const Slide14_Closing: React.FC<{ isActive: boolean }> = ({ isActive }) =
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Revolution.</span>
        </h2>
 
-       <p className="text-2xl text-gray-500 font-light mb-12 max-w-2xl mx-auto">
+       {/**<p className="text-2xl text-gray-500 font-light mb-12 max-w-2xl mx-auto">
           We are raising <span className="text-gray-900 font-bold">$3M Seed</span> to democratize access to global healthcare.
-       </p>
+       </p>**/}
 
        <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12">
           <div className="flex items-center gap-4 bg-white px-6 py-4 rounded-full shadow-lg shadow-gray-200/50 border border-gray-100 hover:scale-105 transition-transform cursor-pointer">

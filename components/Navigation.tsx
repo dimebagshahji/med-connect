@@ -18,7 +18,7 @@ export const Navigation: React.FC<NavigationProps> = ({ currentSlide, totalSlide
         <button 
           onClick={prevSlide}
           disabled={currentSlide === 0}
-          className="p-2 rounded-full bg-white/10 hover:bg-white/30 backdrop-blur-md text-white disabled:opacity-30 transition-all"
+          className="p-2 rounded-full bg-black/60 hover:bg-black/30 backdrop-blur-md text-white disabled:opacity-40 transition-all"
         >
           <ChevronLeft size={24} />
         </button>

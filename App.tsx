@@ -10,7 +10,7 @@ import {
   Slide6_Product,
   Slide7_Competition,
   Slide8_BusinessModel,
-  Slide9_Traction,
+  // Slide9_Traction,
   Slide10_GTM,
   Slide11_Team,
   Slide12_Finance,
@@ -41,7 +41,7 @@ const App: React.FC = () => {
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [nextSlide, prevSlide]);
-
+   // <Slide9_Traction isActive={currentSlide === SlideIndex.Traction} />
   return (
     <div className="w-full h-screen bg-gray-900 relative overflow-hidden font-sans">
       <div className="w-full h-full relative">
@@ -53,7 +53,7 @@ const App: React.FC = () => {
         <Slide6_Product isActive={currentSlide === SlideIndex.Product} />
         <Slide7_Competition isActive={currentSlide === SlideIndex.Competition} />
         <Slide8_BusinessModel isActive={currentSlide === SlideIndex.BusinessModel} />
-        <Slide9_Traction isActive={currentSlide === SlideIndex.Traction} />
+     
         <Slide10_GTM isActive={currentSlide === SlideIndex.GoToMarket} />
         <Slide11_Team isActive={currentSlide === SlideIndex.Team} />
         <Slide12_Finance isActive={currentSlide === SlideIndex.Finance} />

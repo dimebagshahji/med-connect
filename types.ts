@@ -11,12 +11,12 @@ export enum SlideIndex {
   Product = 5,
   Competition = 6,
   BusinessModel = 7,
-  Traction = 8,
-  GoToMarket = 9,
-  Team = 10,
-  Finance = 11,
-  Roadmap = 12,
-  Closing = 13
+  // Traction = 8,
+  // GoToMarket = 8,
+  Team = 8,
+  Finance = 9,
+  // Roadmap = 11,
+  Closing = 10
 }
 
-export const TOTAL_SLIDES = 14;
+export const TOTAL_SLIDES = 11;

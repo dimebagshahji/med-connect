@@ -10,7 +10,7 @@ export const SlideWrapper: React.FC<SlideWrapperProps> = ({ children, isActive, 
   if (!isActive) return null;
   
   return (
-    <div className={`w-full h-screen absolute top-0 left-0 overflow-hidden flex flex-col ${className}`}>
+    <div className={`w-full h-screen absolute top-0 left-0 overflow-y-auto overflow-x-hidden flex flex-col ${className}`}>
       {children}
     </div>
   );
